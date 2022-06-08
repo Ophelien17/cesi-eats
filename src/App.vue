@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">CesiEats</router-link>
+    <router-link to="/">Cesi Eats</router-link>
 
     <input placeholder="Restaurant, type, ..." type="text">
     <input placeholder="Adresse" type="text">

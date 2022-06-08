@@ -26,7 +26,7 @@
         background-color: rgba(193, 193, 193, .34);
         border-radius: 20px;
         padding: 60px 30px 30px 30px;
-        margin: 80px;
+        margin: 50px;
         min-width: 200px;
     }
 
@@ -38,6 +38,7 @@
         left: 0;
         right: 0;
         width: 160px;
+        border-radius: 20px;
     }
 
     .titleArticle {
