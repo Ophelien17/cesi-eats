@@ -1,9 +1,5 @@
 <template>
   <nav>
-    <<<<<<< HEAD
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-    =======
     <router-link to="/">Cesi Eats</router-link>
 
     <input placeholder="Restaurant, type, ..." type="text">
@@ -18,7 +14,6 @@
     </div>
 
     <router-link to="/cart">Panier</router-link>
-    >>>>>>> nav
   </nav>
   <router-view/>
 </template>
@@ -33,45 +28,10 @@
 }
 
 nav {
-  < < < < < < < HEAD
+  display: flex;
+  justify-content: space-between;
   padding: 30px;
-}
-
-=
-=
-=
-=
-=
-=
-=
-display: flex
-
-;
-justify-content: space-between
-
-;
-padding:
-
-30
-px
-
-;
-box-shadow:
-
-0
-px
-
-10
-px
-
-10
-px
-
--
-3
-px grey
-
-;
+  box-shadow: 0px 10px 10px -3px grey;
 }
 
 .dropdown {
@@ -93,8 +53,6 @@ px grey
   display: flex;
   flex-direction: column;
 }
-
->>> >>> > nav
 nav a {
   font-weight: bold;
   color: #2c3e50;
