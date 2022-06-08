@@ -1,19 +1,17 @@
 <template>
   <nav>
     <router-link to="/">CesiEats</router-link>
-    |
+
+    <input placeholder="Restaurant, type, ..." type="text">
+    <input placeholder="Adresse" type="text">
     <div class="dropdown">
       <span>Account</span>
       <div class="dropdown-link">
         <router-link to="/account">Mon compte</router-link>
-        |
         <router-link to="/orders">Commandes</router-link>
-        |
         <router-link to="/orders">Déconnexion</router-link>
-        |
       </div>
     </div>
-    |
 
     <router-link to="/cart">Panier</router-link>
   </nav>
@@ -33,7 +31,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 30px;
-  box-shadow: 0px 2px 10px black;
+  box-shadow: 0px 10px 10px -3px grey;
 }
 
 .dropdown {
@@ -52,7 +50,8 @@ nav {
 }
 
 .dropdown:hover .dropdown-link {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 nav a {
   font-weight: bold;

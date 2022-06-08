@@ -1,18 +1,48 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div>
+      <h1>Le <span class="color">meilleur</span> endroit
+        pour <span class="color">manger</span> se trouve
+        dans votre canapé</h1>
+      <input class="searchRestaurant" placeholder="Restaurant, type, ..." type="text">
+
+    </div>
+    <div class="bestProducts">
+      <ProductTile/>
+      <ProductTile/>
+      <ProductTile/>
+      <ProductTile/>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import ProductTile from '@/components/ProductTile.vue'; // @ is an alias to /src
 
 export default defineComponent({
   name: 'HomeView',
   components: {
-    HelloWorld,
+    ProductTile
   },
 });
 </script>
+<style>
+  .color {
+    color: #4D90A0;
+  }
+
+  .searchRestaurant {
+    padding: 5px;
+    min-width: 300px;
+    border-radius: 10px;
+    border-color: #2c3e50;
+  }
+
+
+  .bestProducts {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>
