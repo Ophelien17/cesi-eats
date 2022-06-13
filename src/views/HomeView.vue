@@ -1,44 +1,25 @@
 <template>
-    <<<<<<< HEAD
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
-</template>
+    <div class="home">
+        <div class="come">
+            <h1>Le <span class="color">meilleur</span> endroit
+                pour <span class="color">manger</span> se trouve
+                dans votre canapé</h1>
+            <input class="searchRestaurant" placeholder="Restaurant, type, ..." type="text">
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
-});
-</script>
-=======
-<div class="home">
-    <div class="come">
-        <h1>Le <span class="color">meilleur</span> endroit
-            pour <span class="color">manger</span> se trouve
-            dans votre canapé</h1>
-        <input class="searchRestaurant" placeholder="Restaurant, type, ..." type="text">
-
-    </div>
-
-
-    <div class="bestProducts">
-        <div class="background"/>
-        <div :key="article.restaurantId" v-for="article in populaMeals">
-            <ProductTile v-bind:content="article"/>
         </div>
 
+
+        <div class="bestProducts">
+            <div class="background"/>
+            <div :key="article.restaurantId" v-for="article in populaMeals">
+                <ProductTile v-bind:content="article"/>
+            </div>
+
+        </div>
     </div>
-</div>
-<div :key="restaurant.id" class="popular" v-for="restaurant in popularRestaurants">
-    <PopularRestaurant v-bind:content="restaurant"/>
-</div>
+    <div :key="restaurant.id" class="popular" v-for="restaurant in popularRestaurants">
+        <PopularRestaurant v-bind:content="restaurant"/>
+    </div>
 </template>
 
 <script lang="ts">
@@ -216,4 +197,3 @@ export default defineComponent({
 
 
 </style>
->>>>>>> nav
