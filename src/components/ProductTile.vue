@@ -2,11 +2,11 @@
     <div class="article">
         <img alt="image article" class="imgArticle" src="../assets/buger.webp">
 
-        <h3 class="titleArticle">Burger</h3>
-        <p class="ingredient">Ingrédients : </p>
-        <p class="price">Price : €</p>
+        <h3 class="titleArticle">{{content.nom}}</h3>
+        <p class="ingredient">Ingrédients : {{content.description}}</p>
+        <p class="price">Price : {{content.price}}€</p>
         <div class="add">
-            <button class="addToCart"><img alt="panier" src="" title="Ajouter au panier"></button>
+            <button class="addToCart" v-on:click="test"><img alt="panier" src="" title="Ajouter au panier"></button>
 
         </div>
     </div>
@@ -16,7 +16,13 @@
 
 <script>
     export default {
-        name: "ProductTile"
+        name: "ProductTile",
+        props: ['content'],
+        methods: {
+            test() {
+                console.log(this.content)
+            }
+        }
     }
 </script>
 
@@ -28,6 +34,7 @@
         padding: 60px 30px 30px 30px;
         margin: 50px;
         min-width: 200px;
+        max-width: 250px;
     }
 
     .imgArticle {
