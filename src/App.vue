@@ -19,46 +19,47 @@
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  box-shadow: 0px 10px 10px -3px grey;
-}
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    box-shadow: 0px 10px 10px -3px grey;
+  }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
 
-.dropdown-link {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
+  .dropdown-link {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
 
-.dropdown:hover .dropdown-link {
-  display: flex;
-  flex-direction: column;
-}
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  .dropdown:hover .dropdown-link {
+    display: flex;
+    flex-direction: column;
+  }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+  nav a {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+
+  nav a.router-link-exact-active {
+    color: #42b983;
+  }
 </style>
