@@ -21,6 +21,7 @@
             <router-link to="">Tarifs</router-link>
             <router-link to=""> Ne pas vendre mes données (Californie)</router-link>
         </div>
+
     </div>
 </template>
 
@@ -35,13 +36,12 @@
         padding-top: 20px;
         padding-bottom: 50px;
         border-top: 1px solid #4D90A0;
-        display: flex;
-        justify-content: space-around;
+
 
         .logo {
             .socialMedia {
                 display: flex;
-                flex-direction: column;
+
 
                 img {
                     height: 30px;
@@ -62,6 +62,31 @@
 
             a:hover {
                 text-decoration: underline;
+            }
+        }
+    }
+
+    @media (max-width: 749px) {
+        .socialMedia {
+            justify-content: space-around;
+        }
+        .indicationLinks {
+            display: flex;
+
+            div {
+                padding: 10px;
+            }
+        }
+
+    }
+
+    @media (min-width: 750px) {
+        .footer {
+            display: flex;
+            justify-content: space-around;
+
+            .socialMedia {
+                flex-direction: column;
             }
         }
     }
