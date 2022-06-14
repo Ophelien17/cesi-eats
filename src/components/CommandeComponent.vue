@@ -26,7 +26,6 @@
 
         .imgCmd {
             border-radius: 5px;
-            max-height: 200px;
         }
 
         .details {
@@ -41,11 +40,8 @@
         }
 
         .linkToRestaurant {
-            font-size: large;
             border: none;
             border-radius: 10px;
-            width: 200px;
-            height: 100px;
             background: linear-gradient(145deg, #ffffff, #e6e6e6);
             box-shadow: 20px 20px 60px #d9d9d9,
             -20px -20px 60px #ffffff;
@@ -58,6 +54,33 @@
             inset -20px -20px 60px #ffffff;
 
         }
+    }
 
+    @media (max-width: 749px) {
+        .cmd {
+            .imgCmd {
+                max-height: 100px;
+            }
+
+            .linkToRestaurant {
+                width: 100px;
+                height: 50px;
+            }
+        }
+
+    }
+
+    @media (min-width: 750px) {
+        .cmd {
+            .imgCmd {
+                max-height: 200px;
+            }
+
+            .linkToRestaurant {
+                font-size: large;
+                width: 15%;
+                height: 100px;
+            }
+        }
     }
 </style>
