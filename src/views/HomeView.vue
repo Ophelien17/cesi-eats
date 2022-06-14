@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts">
+    /* eslint-disable */
     import {defineComponent} from 'vue';
-    import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
     import ProductTile from '@/components/ProductTile.vue'; // @ is an alias to /src
     import PopularRestaurant from '@/components/PopularRestaurant.vue'; // @ is an alias to /src
 

@@ -1,7 +1,5 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import NotFound from '../views/NotFound.vue'
-import Cart from '../views/CartView.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
