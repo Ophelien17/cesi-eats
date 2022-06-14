@@ -16,6 +16,9 @@
     <router-link to="/cart">Panier</router-link>
   </nav>
   <router-view/>
+  <div>
+    <FooterComponent/>
+  </div>
 </template>
 
 <style>
@@ -63,3 +66,10 @@
     color: #42b983;
   }
 </style>
+<script>
+  import FooterComponent from "@/components/FooterComponent";
+
+  export default {
+    components: {FooterComponent}
+  }
+</script>
