@@ -1,5 +1,7 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import CommandView from '../views/client/CommandesView.vue'
+import CartView from '../views/client/CartView.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -9,11 +11,11 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
         path: '/cart',
-        name: 'about',
+        name: 'cart',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/client/CartView.vue')
+        component: CartView
     },
     {
         path: '/orders',
@@ -21,7 +23,15 @@ const routes: Array<RouteRecordRaw> = [
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/client/CommandesView.vue')
+        component: CommandView
+    },
+    {
+        path: '/loginUser',
+        name: 'LoginUser',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/loginUser.vue')
     },
 ]
 

@@ -4,8 +4,9 @@
 
     <input placeholder="Restaurant, type, ..." type="text">
     <input placeholder="Adresse" type="text">
-    <div class="dropdown">
-      <span>Account</span>
+    <router-link v-if="token == null" to="/loginUser">Connexion</router-link>
+    <div v-else class="dropdown">
+      <div>UserName</div>
       <div class="dropdown-link">
         <router-link to="/account">Mon compte</router-link>
         <router-link to="/orders">Commandes</router-link>
@@ -70,6 +71,15 @@
   import FooterComponent from "@/components/FooterComponent";
 
   export default {
-    components: {FooterComponent}
+    components: {FooterComponent},
+    data(){
+    return {
+      token: this.$cookie.getCookie("Token")
+    }
+  },
+    mounted() {   
+      console.log("token "+this.token) ;    
+   }
+
   }
 </script>
