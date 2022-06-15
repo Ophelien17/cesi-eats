@@ -16,9 +16,9 @@
 
     <router-link to="/cart">Panier</router-link>
   </nav>
-  <router-view/>
+  <router-view />
   <div>
-    <FooterComponent/>
+    <FooterComponent />
   </div>
 </template>
 
@@ -71,15 +71,9 @@
   import FooterComponent from "@/components/FooterComponent";
 
   export default {
-    components: {FooterComponent},
-    data(){
-    return {
-      token: this.$cookie.getCookie("Token")
-    }
-  },
-    mounted() {   
-      console.log("token "+this.token) ;    
-   }
+    components: {
+      FooterComponent
+    },
 
   }
 </script>

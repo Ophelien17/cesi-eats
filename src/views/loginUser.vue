@@ -1,68 +1,59 @@
 .<template>
-    <div>
-        <v-card class="body">
-            <v-responsive :aspect-ratio="16/9">
-                <v-form ref="form" v-model="valid" lazy-validation>
-                    <v-text-field v-model="UsersName" :counter="10" :rules="nameRules" label="Name" required>
-                    </v-text-field>
+    <div class="d-flex justify-center mb-6 body">
+        <v-card v-if="form1State" width="60%">
+            <v-form ref="form" v-model="valid" lazy-validation>
+                <v-text-field v-model="UsersName" :counter="10" :rules="nameRules" label="Name" required>
+                </v-text-field>
 
-                    <v-text-field v-model="UsersMail" :rules="emailRules" label="E-mail" required></v-text-field>
+                <v-text-field v-model="UsersMail" :rules="emailRules" label="E-mail" required></v-text-field>
 
-                    <v-text-field v-model="UsersPassword" type="password" label="Password" required></v-text-field>
+                <v-text-field v-model="UsersPassword" type="password" label="Password" required></v-text-field>
 
-                    <v-select v-model="Roles" :items="items" item-value="id" item-text="name"
-                        :rules="[v => !!v || 'Role is required']" label="Roles" required>
-                    </v-select>
+                <v-select v-model="Roles" :items="items" item-value="id" item-text="name"
+                    :rules="[v => !!v || 'Role is required']" label="Roles" required>
+                </v-select>
 
-                    <v-btn :disabled="!valid" color="success" class="mr-4" @click="SubmitCreate">
-                        Validate
-                    </v-btn>
+                <v-btn :disabled="!valid" color="success" class="mr-4" @click="SubmitCreate">
+                    Validate
+                </v-btn>
 
-                    <v-btn color="error" class="mr-4" @click="reset1">
-                        Cancel
-                    </v-btn>
+                <v-btn color="error" class="mr-4" @click="reset1">
+                    Cancel
+                </v-btn>
+                <v-btn variant="plain" class="mr-1" @click="Switch">
+                    Log In
+                </v-btn>
+            </v-form>
+        </v-card>
+        <v-card v-if="form2State" width="60%">
+            <v-form ref="form2" v-model="valid" lazy-validation>
 
-                </v-form>
+                <v-text-field v-model="UsersMail" :rules="emailRules" label="E-mail" required></v-text-field>
 
-                <v-divider class="mx-4" vertical></v-divider>
+                <v-text-field v-model="UsersPassword" type="password" label="Password" required></v-text-field>
 
-                <v-form ref="form2" v-model="valid" lazy-validation>
+                <v-btn :disabled="!valid" color="success" class="mr-4" @click="LoginUser">
+                    Validate
+                </v-btn>
 
-                    <v-text-field v-model="UsersMail" :rules="emailRules" label="E-mail" required></v-text-field>
-
-                    <v-text-field v-model="UsersPassword" type="password" label="Password" required></v-text-field>
-
-                    <v-btn :disabled="!valid" color="success" class="mr-4" @click="LoginUser">
-                        Validate
-                    </v-btn>
-
-                    <v-btn color="error" class="mr-4" @click="reset2">
-                        Cancel
-                    </v-btn>
-
-                </v-form>
-
-
-
-            </v-responsive>
+                <v-btn color="error" class="mr-4" @click="reset2">
+                    Cancel
+                </v-btn>
+                <v-btn variant="plain" class="mr-1" @click="Switch">
+                    Don't have an account ?
+                </v-btn>
+            </v-form>
         </v-card>
 
-        <v-snackbar
-      v-model="snackbar"
-    >
-      {{ textSnack }}
+        <v-snackbar v-model="snackbar">
+            {{ textSnack }}
 
-      <template v-slot:action="{ attrs }">
-        <v-btn
-          color="pink"
-          text
-          v-bind="attrs"
-          @click="snackbar = false"
-        >
-          Close
-        </v-btn>
-      </template>
-    </v-snackbar>
+            <template v-slot:action="{ attrs }">
+                <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
+                    Close
+                </v-btn>
+            </template>
+        </v-snackbar>
     </div>
 </template>
 
@@ -72,6 +63,8 @@
         name: 'LoginUser',
         data: () => ({
             valid: true,
+            form1State: false,
+            form2State: true,
             UsersName: '',
             nameRules: [
                 v => !!v || 'Name is required',
@@ -87,7 +80,7 @@
             PhotoFileName: '',
             Roles: null,
             snackbar: false,
-            textSnack:'',
+            textSnack: '',
             items: [
                 "Client", "Livreur", "Restaurateur"
             ],
@@ -98,6 +91,10 @@
             },
             reset2() {
                 this.$refs.form2.reset()
+            },
+            Switch() {
+                this.form1State = !this.form1State
+                this.form2State = !this.form2State
             },
             SubmitCreate() {
                 var today = new Date();
@@ -130,13 +127,38 @@
                     data: data
                 };
                 axios(config)
-                    .then(function (response) {
+                    .then(function () {
                         this.textSnack = "Successfully added User"
-                        this.snackbar = false  ;                    
+                        this.snackbar = true;
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
+            },
+            LoginUser() {
+
+                const data = JSON.stringify({
+                    "UsersMail": "leo.gilles@orange.fr",
+                    "UsersPassword": "leopass"
+                });
+
+                var config = {
+                    method: 'post',
+                    url: 'http://localhost:5000/api/Login',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: data
+                };
+
+                axios(config)
+                    .then(function (response) {
+                        localStorage.setItem('token', response.data.token)
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
             }
 
         }
@@ -146,6 +168,7 @@
 <style lang="scss">
     .body {
         margin: 20px;
-        padding: 20px;
+        padding: 50px;
+
     }
 </style>
