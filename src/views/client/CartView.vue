@@ -3,22 +3,15 @@
         <div class="articles">
             <h1>Pannier</h1>
             <div class="deliveryAdresse">
-                <div class="actualAdresse">
                     <p>32 rue du gigot</p>
                     <button @click="changeAdresse()">Modifier</button>
-                </div>
-
-                <div class="newAdresse">
-                    <input placeholder="Adresse de livraison" type="text"/>
-                    <button @click="changeAdresse()">Ok</button>
-                </div>
 
             </div>
 
             <div class="article">
                 <h2>Articles</h2>
                 <div class="details">
-
+                    <ProductCart/>
                 </div>
             </div>
         </div>
@@ -49,9 +42,10 @@
 </template>
 
 <script>
+    import ProductCart from "@/components/ProductCart";
     export default {
         name: "CartUser",
-
+        components: {ProductCart},
         methods: {
             changeAdresse() {
                 console.log('t')
@@ -62,8 +56,6 @@
 
 <style lang="scss" scoped>
     .cart {
-        display: flex;
-        justify-content: space-between;
         padding: 2% 5%;
 
         .articles {
@@ -98,7 +90,11 @@
             .article {
                 padding-top: 10px;
                 display: flex;
-                align-items: flex-start;
+                flex-direction: column;
+
+                h2 {
+                    text-align: left;
+                }
                 .details {
                     display: flex;
                 }
@@ -123,15 +119,18 @@
                 justify-content: flex-end;
             }
         }
+    }
 
-        @media (max-width: 899px) {
-            .cart {
-            }
+    @media (max-width: 899px) {
+        .cart {
+
         }
+    }
 
-        @media (min-width: 900px) {
-            .cart {
-            }
+    @media (min-width: 900px) {
+        .cart {
+            display: flex;
+            justify-content: space-between;
         }
     }
 </style>
